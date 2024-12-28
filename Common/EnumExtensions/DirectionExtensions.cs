@@ -1,5 +1,6 @@
 ﻿using Common.Data;
 using Common.Enum;
+using System.Runtime.CompilerServices;
 
 namespace Common.EnumExtensions
 {
@@ -15,6 +16,18 @@ namespace Common.EnumExtensions
         {
             var vector = direction.GetDirectionVectorPoint();
             return origin + vector;
+        }
+
+        public static Direction GetOpposedDirection(this Direction direction)
+        {
+            return direction switch
+            {
+                Direction.Left => Direction.Right,
+                Direction.Right => Direction.Left,
+                Direction.Up => Direction.Down,
+                Direction.Down => Direction.Up,
+                _ => throw new NotImplementedException(),
+            };
         }
 
         public static bool IsHorizontal(this Direction direction)
