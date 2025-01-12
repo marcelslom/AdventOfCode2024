@@ -19,5 +19,10 @@ namespace Common.DataExtensions
             return Math.Abs(point1.X - point2.X) + Math.Abs(point1.Y - point2.Y);
         }
 
+        public static T FindIn<T>(this Point point, T[][] array)
+        {
+            return array[point.Y][point.X];
+        }
+
     }
 }
